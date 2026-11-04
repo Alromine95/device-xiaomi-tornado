@@ -1,0 +1,14 @@
+# Display
+vendor.display.force_tonemapping=1
+
+# Radio
+persist.vendor.radio.dynamic_sar=1
+
+# Miscellaneous
+persist.vendor.tracking.dfs=true
+ro.product.device_for_attestation=tornado
+ro.product.manufacturer_for_attestation=Xiaomi
+ro.product.odm.cert=
+ro.product.odm.marketname=
+ro.vendor.s2_reboot_time=11
+
