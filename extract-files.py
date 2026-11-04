@@ -10,7 +10,7 @@ from extract_utils.main import (
 )
 
 namespace_imports = [
-    'device/xiaomi/generic',
+    'device/xiaomi/tornado',
 ]
 
 module = ExtractUtilsModule(
