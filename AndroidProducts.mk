@@ -4,9 +4,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_generic.mk
+    $(LOCAL_DIR)/lineage_tornado.mk
 
 COMMON_LUNCH_CHOICES := \
-    lineage_generic-user \
-    lineage_generic-userdebug \
-    lineage_generic-eng
+    lineage_tornado-user \
+    lineage_tornado-userdebug \
+    lineage_tornado-eng
