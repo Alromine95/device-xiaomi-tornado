@@ -70,9 +70,11 @@ BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 BOARD_MKBOOTIMG_INIT_ARGS += --header_version $(BOARD_INIT_BOOT_HEADER_VERSION)
 
 # Kernel
-TARGET_PREBUILT_KERNEL := $(KERNEL_PATH)/Image.gz
-PRODUCT_COPY_FILES += \
-    $(TARGET_PREBUILT_KERNEL):kernel
+BOARD_KERNEL_IMAGE_NAME := Image.gz
+TARGET_KERNEL_ARCH := arm64
+TARGET_KERNEL_SOURCE := kernel/xiaomi/tornado
+TARGET_KERNEL_CONFIG := gki_defconfig tornado.config #only makes build system happy
+
 
 # Kill lineage kernel build task while preserving kernel
 TARGET_NO_KERNEL_OVERRIDE := true
