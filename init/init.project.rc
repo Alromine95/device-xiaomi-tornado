@@ -49,10 +49,6 @@ on post-fs-data
     mkdir /data/vendor/camera/mfnr 0777 system camera
 # P15 code add mfnr gpu bin params end
 
-# MIUI ADD: Performance_BoostFramework
-    chown system system /sys/module/perf_helper/mimd/mimdtrigger
-# END Performance_BoostFramework
-
 #SMB
     chown system system /proc/smb/ScreenComm
     chmod 0660 /proc/smb/ScreenComm
@@ -60,6 +56,10 @@ on post-fs-data
     chmod 0660 /dev/spm
     chown system system /dev/spm
 
+
+# MIUI ADD: Performance_BoostFramework
+    chown system system /sys/module/perf_helper/mimd/mimdtrigger
+# END Performance_BoostFramework
 
 on init
     # Refer to http://source.android.com/devices/tech/storage/index.html
@@ -96,7 +96,6 @@ on init
 
 #+ExtR HTH-404417 add by longcheer, 20240512, support single sim
 on property:ro.boot.multisim=ss
-    #setprop ro.boot.product.hardware.sku ${ro.boot.multisim}
     setprop persist.radio.multisim.config ${ro.boot.multisim}
     setprop ro.boot.opt_sim_count 1
     setprop ro.vendor.miui.singlesim 1
@@ -104,7 +103,6 @@ on property:ro.boot.multisim=ss
     setprop ro.miui.singlesim 1
     setprop telephony.active_modems.max_count 1
 on property:ro.boot.multisim=dsds
-    #setprop ro.boot.product.hardware.sku ${ro.boot.multisim}
     setprop persist.radio.multisim.config ${ro.boot.multisim}
     setprop ro.boot.opt_sim_count 2
     setprop ro.telephony.sim.count 2
@@ -116,10 +114,9 @@ on property:ro.boot.multisim=dsds
 # for CID
 on property:vendor.audio.usb_cctoggle=1
     write /sys/class/lc_charger/audio_on 1
-    write /dev/kmsg "enable audio_on"
+
 on property:vendor.audio.usb_cctoggle=0
     write /sys/class/lc_charger/audio_on 0
-    write /dev/kmsg "disable audio_on"
 
 # P15 code add hightemp notice start
 on init
