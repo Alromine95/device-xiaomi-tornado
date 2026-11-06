@@ -4,7 +4,7 @@
 #
 
 DEVICE_PATH := device/xiaomi/tornado
-KERNEL_PATH := device/xiaomi/tornado-kernel
+KERNEL_PATH := device/xiaomi/tornado-prebuilt
 
 # Enable 64-bit for non-zygote.
 ZYGOTE_FORCE_64 := true
@@ -237,3 +237,7 @@ WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
 
 # Inherit the proprietary files
 include vendor/xiaomi/tornado/BoardConfigVendor.mk
+TARGET_PREBUILT_KERNEL := $(KERNEL_PATH)/Image.gz
+
+# Device-specific Xiaomi vendor HAL compatibility
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += device/xiaomi/tornado/device_framework_compatibility_matrix.xml
